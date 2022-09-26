@@ -3,6 +3,16 @@ import { closeModal } from "./modal.js";
 const tasksList = document.querySelector("ul");
 const taskInputElem = document.getElementsByTagName("input")[0];
 
+taskInputElem.addEventListener("keypress", function (ev) {
+  if (ev.key === "Enter") {
+    ev.preventDefault();
+
+    if (taskInputElem.value.length > 0) {
+      createTask();
+    }
+  }
+});
+
 const tasks = [];
 
 export const createTask = () => {
